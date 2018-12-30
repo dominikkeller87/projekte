@@ -1,0 +1,76 @@
+{% extends "layouts/main.html"%}
+
+{% block content%}
+        <div class ="row">
+             <div class="four columns">
+                <form method="get">
+                    <label for="Currency1">Währung 1</label>
+                    <input type="text" name="Currency1" id="Currency1"value="{{ currency1 }}">
+
+                    <label for="Currency2">Währung 2</label>
+                    <input type="text" name="Currency2" id="Currency2" value="{{ currency2 }}">
+
+                    <label for="rate">Wechselrate</label>
+                    <input type="text" name="rate" id="rate"value="{{ rate }}">
+
+                    <br/>
+                    <input type="submit" value="Brechnen!"/>
+                </form>
+            </div>
+
+               <div class="four columns">
+                  <table class ="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>{{currency1}}</th>
+                            <th>{{currency2}}</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for row in table1 %}
+                            <tr>
+                                <td>{{row [0]}}</td>
+                                <td>{{row [1]}}</td>
+                                <td>{{row [2]}}</td>
+                                <td>{{row [3]}}</td>
+
+
+                            </tr>
+                        {%endfor%}
+
+                    </tbody>
+                  </table>
+               </div>
+
+
+
+               <div class="four columns">
+                  <table class ="u-full-width">
+                        <thead>
+                            <tr>
+                                <th>{{currency2}}</th>
+                                <th>{{currency1}}</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            {% for row in table2 %}
+                                <tr>
+                                    <td>{{row [0]}}</td>
+                                    <td>{{row [1]}}</td>
+                                    <td>{{row [2]}}</td>
+                                    <td>{{row [3]}}</td>
+
+
+                                </tr>
+                            {%endfor%}
+
+                        </tbody>
+
+                  </table>
+               </div>
+        </div>
+
+
+{% endblock %}
